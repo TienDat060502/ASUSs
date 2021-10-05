@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASUS Việt Nam</title>
+    <link rel="stylesheet" href="thi1.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="thi.html"> <img  src="image/logo (1).png" alt=""></a>
+        </div>
+         <div class="menu">
+            <li><a href="category.php">Máy tính xách tay</a>
+                 
+            <li><a href="">Điện thoại</a></li>
+            <li><a href="">Màn hình/Máy bàn</a></li>
+            <li><a href="">Bo mạch chủ/Linh kiện </a></li>
+            <li><a href="">Thiết bị mạng</a></li>
+            <li><a href="login.php">Phụ kiện</a></li>
+            <li><a href="">Mua online</a></li>
+        </div>
+        
+        <div class="others">
+            <li><input placeholder="find" type="text"><i class="fas fa-search"></i></li>
+            <li><a  class="fas fa-gamepad" href=""></a></li>
+            <li><a  class="fa fa-user" href=""></a></li>
+            <li><a  class="fa fa-shopping-bag" href=""></a></li>
+           
+        </div>
+    </header>
+<!-----------------slider------------------------->
+    <section id="slider">
+        <div class="aspect-ratio-169">
+            <img src="image/SLIDE1.jpg">
+            <img src="image/SLIDE2.png">
+            <img src="image/SLIDE3.jpg">
+            <img src="image/SLIDE4.jpg">
+        </div>
+
+        <div class="dot-container">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </section>
+    <!-----------------app-container------------------------->
+ <section class="app-container" style="text-align: center;">
+     <p>DOWNLOAD</p>
+     <div class="app-store">
+         <img src="image/appstore.jpg">
+         <img src="image/googleplay.jpg">
+     </div>
+     <p>RECIEVE NOTICE AT ©ASUSTeK APP</p>
+    <input type="text" placeholder="nhập email của bạn" id="">
+ </section>
+ <!-----------------footer------------------------->
+ <div class="footer-top" style="text-align: center;">
+   
+     <li><a href="">Liên hệ </a></li>
+     <li><a href="">Giới thiệu</a></li>
+     <li><a href=""></a>Thông tin hợp pháp</li>
+     <li>
+         <a href=""class="fab fa-facebook-f"></a>
+         <a href=""class="fab fa-twitter"></a>
+         <a href=""class="fab fa-youtube"></a>
+     </li>
+ </div>
+ <div style="text-align: center;">
+<p> Tập đoàn đa quốc gia AsusTek Computer Inc.<br>
+    Địa chỉ đăng ký: Viet Tower, 1 Thái Hà, Trung Liệt, Đống Đa, Hà Nội, Việt Nam - 18006588<br>
+   
+</p>
+</div>
+<div class="footer-bootem" style="text-align: center;"> ©ASUSTeK Computer Inc All rights reserved</div>
+
+</body>
+<script>
+    const header = document.querySelector("header")
+ window.addEventListener("scroll",function()
+						 
+	{
+     x=window.pageYOffset
+     if(x>0){ header.classList.add("sticky")  }
+     else{header.classList.remove("sticky") }
+    })
+	
+    const imgPosition = document.querySelectorAll(".aspect-ratio-169 img")
+    const imgContainer = document.querySelector(".aspect-ratio-169 ")
+    const dotItem = document.querySelectorAll(".dot")
+    let index=0
+    let imgNuber = imgPosition.length
+    
+    imgPosition.forEach(function(image,index){
+        image.style.left=index*100+"%"
+        dotItem[index].addEventListener("click",function()
+		{slider(index) })
+    })
+    function imgSlide (){
+        index++;
+        console.log(index)
+        if(index>=imgNuber){index=0}
+        slider (index)
+    }
+    function slider (index){
+        imgContainer.style.left = "-" +index*100+ "%"
+        const dotAtive= document.querySelector(".active")
+        dotAtive.classList.remove("active")
+        dotItem[index].classList.add("active")
+    }
+    setInterval(imgSlide,4000)
+</script>
+</html>
